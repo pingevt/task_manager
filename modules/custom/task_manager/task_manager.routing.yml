@@ -1,0 +1,7 @@
+task_manager.list_tasks_by_project:
+  path: '/list-tasks-by-project'
+  defaults:
+    _controller: '\Drupal\task_manager\Controller\TaskManagerController::listByProject'
+    _title: 'My Tasks'
+  requirements:
+    _permission: 'access content'

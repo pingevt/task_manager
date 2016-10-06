@@ -24,6 +24,29 @@ class ProjectForm extends ContentEntityForm {
     $form = parent::buildForm($form, $form_state);
     $entity = $this->entity;
 
+    // Node author information for administrators.
+    $form['author'] = array(
+      '#type' => 'details',
+      '#title' => t('Authoring information'),
+      '#group' => 'advanced',
+      '#attributes' => array(
+        'class' => array('node-form-author'),
+      ),
+      '#attached' => array(
+        'library' => array('node/drupal.node'),
+      ),
+      '#weight' => 90,
+      '#optional' => TRUE,
+    );
+
+    if (isset($form['user_id'])) {
+      $form['user_id']['#group'] = 'author';
+    }
+
+    if (isset($form['created'])) {
+      $form['created']['#group'] = 'author';
+    }
+
     return $form;
   }
 
@@ -32,6 +55,10 @@ class ProjectForm extends ContentEntityForm {
    */
   public function save(array $form, FormStateInterface $form_state) {
     $entity = $this->entity;
+
+    // Set new Revision.
+    $entity->setNewRevision();
+
     $status = parent::save($form, $form_state);
 
     switch ($status) {

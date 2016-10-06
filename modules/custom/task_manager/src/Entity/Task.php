@@ -40,9 +40,11 @@ use Drupal\user\UserInterface;
  *     },
  *   },
  *   base_table = "task",
+ *   revision_table = "task_revision",
  *   admin_permission = "administer task entities",
  *   entity_keys = {
  *     "id" = "id",
+ *     "revision" = "vid",
  *     "label" = "name",
  *     "uuid" = "uuid",
  *     "uid" = "user_id",
@@ -154,6 +156,10 @@ class Task extends ContentEntityBase implements TaskInterface {
       ->setLabel(t('ID'))
       ->setDescription(t('The ID of the Task entity.'))
       ->setReadOnly(TRUE);
+    $fields['vid'] = BaseFieldDefinition::create('integer')
+      ->setLabel(t('VID'))
+      ->setDescription(t('The VID of the Task entity.'))
+      ->setReadOnly(TRUE);
     $fields['uuid'] = BaseFieldDefinition::create('uuid')
       ->setLabel(t('UUID'))
       ->setDescription(t('The UUID of the Task entity.'))
@@ -187,6 +193,7 @@ class Task extends ContentEntityBase implements TaskInterface {
 
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
+      ->setRevisionable(TRUE)
       ->setDescription(t('The name of the Task entity.'))
       ->setSettings(array(
         'max_length' => 50,
@@ -207,6 +214,7 @@ class Task extends ContentEntityBase implements TaskInterface {
 
     $fields['status'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('Publishing status'))
+      ->setRevisionable(TRUE)
       ->setDescription(t('A boolean indicating whether the Task is published.'))
       ->setDefaultValue(TRUE);
 
@@ -237,6 +245,7 @@ class Task extends ContentEntityBase implements TaskInterface {
 
     $fields['langcode'] = BaseFieldDefinition::create('language')
       ->setLabel(t('Language code'))
+      ->setRevisionable(TRUE)
       ->setDescription(t('The language code for the Task entity.'))
       ->setDisplayOptions('form', array(
         'type' => 'language_select',
@@ -246,10 +255,12 @@ class Task extends ContentEntityBase implements TaskInterface {
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
+      ->setRevisionable(TRUE)
       ->setDescription(t('The time that the entity was created.'));
 
     $fields['changed'] = BaseFieldDefinition::create('changed')
       ->setLabel(t('Changed'))
+      ->setRevisionable(TRUE)
       ->setDescription(t('The time that the entity was last edited.'));
 
     return $fields;

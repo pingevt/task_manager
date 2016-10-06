@@ -41,9 +41,11 @@ use Drupal\user\UserInterface;
  *     },
  *   },
  *   base_table = "project",
+ *   revision_table = "project_revision",
  *   admin_permission = "administer project entities",
  *   entity_keys = {
  *     "id" = "id",
+ *     "revision" = "vid",
  *     "bundle" = "type",
  *     "label" = "name",
  *     "uuid" = "uuid",
@@ -163,6 +165,10 @@ class Project extends ContentEntityBase implements ProjectInterface {
     $fields['id'] = BaseFieldDefinition::create('integer')
       ->setLabel(t('ID'))
       ->setDescription(t('The ID of the Project entity.'))
+      ->setReadOnly(TRUE);
+    $fields['vid'] = BaseFieldDefinition::create('integer')
+      ->setLabel(t('VID'))
+      ->setDescription(t('The VID of the Project entity.'))
       ->setReadOnly(TRUE);
     $fields['type'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Type'))

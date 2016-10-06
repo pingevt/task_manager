@@ -32,6 +32,10 @@ class TaskForm extends ContentEntityForm {
    */
   public function save(array $form, FormStateInterface $form_state) {
     $entity = $this->entity;
+
+    // Set new Revision.
+    $entity->setNewRevision();
+
     $status = parent::save($form, $form_state);
 
     switch ($status) {

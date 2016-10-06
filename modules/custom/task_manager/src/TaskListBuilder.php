@@ -25,6 +25,7 @@ class TaskListBuilder extends EntityListBuilder {
   public function buildHeader() {
     $header['id'] = $this->t('Task ID');
     $header['name'] = $this->t('Name');
+    $header['project'] = $this->t('Project');
     return $header + parent::buildHeader();
   }
 
@@ -32,6 +33,7 @@ class TaskListBuilder extends EntityListBuilder {
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
+    kint($entity);
     /* @var $entity \Drupal\task_manager\Entity\Task */
     $row['id'] = $entity->id();
     $row['name'] = $this->l(
@@ -42,6 +44,20 @@ class TaskListBuilder extends EntityListBuilder {
         )
       )
     );
+
+    $row['project'] = '-';
+    $project = $entity->project_id->entity;
+    if (!is_null($project )) {
+      $row['project'] = $this->l(
+        $project->label(),
+        new Url(
+          'entity.task.edit_form', array(
+            'task' => $project->id(),
+          )
+        )
+      );
+    }
+
     return $row + parent::buildRow($entity);
   }
 
