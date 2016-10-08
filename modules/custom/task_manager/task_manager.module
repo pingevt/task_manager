@@ -59,5 +59,8 @@ function task_manager_theme_suggestions_project(array $variables) {
   $suggestions[] = 'project__' . $entity->bundle() . '__' . $sanitized_view_mode;
   $suggestions[] = 'project__' . $entity->id();
   $suggestions[] = 'project__' . $entity->id() . '__' . $sanitized_view_mode;
+
+kint($suggestions);
+
   return $suggestions;
 }

@@ -34,25 +34,33 @@ class TaskManagerController extends ControllerBase {
    *   A simple renderable array.
    */
   public function listByProject() {
+    $build = array(
+      '#attached' => array(
+        'library' => array('jquery.ui.droppable'),
+      ),
+    );
     $ids = $this->taskStorage->getQuery()
       ->condition('status', 1)
       ->execute();
 
     $tasks =  Task::loadMultiple($ids);
-kint($tasks);
-
 
     $ids = $this->projectStorage->getQuery()
       ->condition('status', 1)
       ->execute();
 
-    $tasks =  Project::loadMultiple($ids);
-kint($tasks);
+    $projects =  Project::loadMultiple($ids);
+//kint($projects);
+
+    $project_vb = $this->entityTypeManager()->getViewBuilder('project');
+    foreach ($projects as $project) {
+      $build['projects'][] = $project_vb->view($project, 'droppable_list');
+    }
 
 
-    $element = array(
-      '#markup' => 'Hello, world',
-    );
-    return $element;
+
+
+
+    return $build;
   }
 }

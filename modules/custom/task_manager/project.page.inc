@@ -21,12 +21,23 @@ use Drupal\Core\Render\Element;
  */
 function template_preprocess_project(array &$variables) {
   // Fetch Project Entity Object.
+  $variables['elements']['#project']->getTasks();
   $project = $variables['elements']['#project'];
 
   // Helpful $content variable for templates.
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];
   }
+
+  // Build Tasks lists.
+kint($variables);
+  $task_list = array();
+  $task_vb = \Drupal::getContainer()->get('entity_type.manager')->getViewBuilder('task');
+  foreach ($project->getTasks() as $task) {
+    $task_list[] = $task_vb->view($task, 'list');
+  }
+
+  $variables['content']['task_list'] = $task_list;
 }
 
 /**

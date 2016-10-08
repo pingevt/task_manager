@@ -15,6 +15,11 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\task_manager\ProjectInterface;
 use Drupal\user\UserInterface;
 
+/*
+ *     "view_builder" = "Drupal\task_manager\ProjectViewBuilder",
+ *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
+*/
+
 /**
  * Defines the Project entity.
  *
@@ -66,6 +71,9 @@ use Drupal\user\UserInterface;
  */
 class Project extends ContentEntityBase implements ProjectInterface {
   use EntityChangedTrait;
+
+  protected $tasks = array();
+
   /**
    * {@inheritdoc}
    */
@@ -249,6 +257,23 @@ class Project extends ContentEntityBase implements ProjectInterface {
       ->setDescription(t('The time that the entity was last edited.'));
 
     return $fields;
+  }
+
+  public function getTasks($reset = FALSE) {
+    if (empty($this->tasks) || $reset) {
+      $taskStorage = \Drupal::getContainer()->get('entity.manager')->getStorage('task');
+
+      $ids = $taskStorage->getQuery()
+        ->condition('status', 1)
+        ->condition('project_id', $this->id())
+        ->execute();
+
+      $tasks =  Task::loadMultiple($ids);
+
+      $this->tasks = $tasks;
+    }
+
+    return $this->tasks;
   }
 
 }
