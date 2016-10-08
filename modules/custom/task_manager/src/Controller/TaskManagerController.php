@@ -36,7 +36,7 @@ class TaskManagerController extends ControllerBase {
   public function listByProject() {
     $build = array(
       '#attached' => array(
-        'library' => array('jquery.ui.droppable'),
+        'library' => array('core/jquery.ui.droppable'),
       ),
     );
     $ids = $this->taskStorage->getQuery()

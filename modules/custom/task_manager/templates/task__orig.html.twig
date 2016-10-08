@@ -16,5 +16,7 @@
  */
 #}
 <div{{ attributes.addClass('task') }}>
-  {{- label -}}
+  {% if content %}
+    {{- content -}}
+  {% endif %}
 </div>

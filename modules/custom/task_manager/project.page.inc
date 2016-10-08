@@ -30,7 +30,6 @@ function template_preprocess_project(array &$variables) {
   }
 
   // Build Tasks lists.
-kint($variables);
   $task_list = array();
   $task_vb = \Drupal::getContainer()->get('entity_type.manager')->getViewBuilder('task');
   foreach ($project->getTasks() as $task) {
@@ -38,6 +37,7 @@ kint($variables);
   }
 
   $variables['content']['task_list'] = $task_list;
+kint($variables);
 }
 
 /**
