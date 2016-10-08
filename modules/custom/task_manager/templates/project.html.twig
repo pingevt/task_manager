@@ -1,11 +1,7 @@
 <div{{ attributes.addClass('project') }}>
-
   {% if content.name %}
-    {{- content.name -}}
+    <h1>{{ content.name }}</h1>
   {% endif %}
   <div>
-    {% if content.task_list %}
-      {{ content.task_list[0] }}
-    {% endif %}
   </div>
 </div>

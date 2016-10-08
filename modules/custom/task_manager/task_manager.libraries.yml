@@ -1,0 +1,11 @@
+pipeline:
+  version: 1.x
+  css:
+    theme:
+      css/task_manager.min.css: {}
+  js:
+    js/src/taskManager.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.ui
+    - core/jquery.ui.droppable
