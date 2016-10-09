@@ -12,6 +12,7 @@ console.log(size);
 
       // Setup sortable
       $('.pipeline .task-list').sortable({
+        containment: ".pane",
         connectWith: ".pipeline .task-list"
       }).disableSelection()
       .on( "sortupdate", function( event, ui ) {
