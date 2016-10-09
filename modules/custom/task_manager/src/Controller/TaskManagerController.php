@@ -11,6 +11,7 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
 use Drupal\task_manager\Entity\Project;
 use Drupal\task_manager\Entity\Task;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Class ProjectAddController.
@@ -66,7 +67,7 @@ class TaskManagerController extends ControllerBase {
       '#suffix' => '</div></div>',
       'pipelines' => array(
         array(
-          '#prefix' => '<div class="pipeline"><h2>No Project Assigned</h2>',
+          '#prefix' => '<div class="pipeline droppable"><h2>No Project Assigned</h2>',
           '#suffix' => '</div>',
           'tasks' => array(),
         ),
@@ -83,7 +84,7 @@ class TaskManagerController extends ControllerBase {
 
     foreach ($projects as $project) {
       $pipeline = array(
-        '#prefix' => '<div class="pipeline"><h2>' . $project->getName() . '</h2>',
+        '#prefix' => '<div class="pipeline droppable"><h2>' . $project->getName() . '</h2>',
         '#suffix' => '</div>',
         'tasks' => array(),
       );
@@ -105,5 +106,16 @@ class TaskManagerController extends ControllerBase {
 
 
     return $build;
+  }
+
+  public function changeTaskProject($task_id, $project_id) {
+    $task =  Task::load($task_id);
+
+    $task->project_id = ($project_id != 0)? : null;
+    $task->save();
+
+    //return array('#markup' => 'Hello');
+
+    return new JsonResponse(array('success'));
   }
 }

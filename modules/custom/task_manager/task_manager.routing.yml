@@ -5,3 +5,9 @@ task_manager.list_tasks_by_project:
     _title: 'My Tasks'
   requirements:
     _permission: 'access content'
+task_manager.change_task_project:
+  path: '/api/change-task-project/{task_id}/{project_id}'
+  defaults:
+    _controller: '\Drupal\task_manager\Controller\TaskManagerController::changeTaskProject'
+  requirements:
+    _permission: 'access content'
