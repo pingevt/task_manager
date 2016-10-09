@@ -47,21 +47,12 @@ class TaskManagerController extends ControllerBase {
       ->sort('weight')
       ->execute();
     $tasks =  Task::loadMultiple($ids);
-//kint($tasks);
 
     $ids = $this->projectStorage->getQuery()
       ->condition('status', 1)
       ->execute();
 
     $projects =  Project::loadMultiple($ids);
-//kint($projects);
-
-/*
-    $project_vb = $this->entityTypeManager()->getViewBuilder('project');
-    foreach ($projects as $project) {
-      $build['projects'][] = $project_vb->view($project, 'droppable_list');
-    }
-*/
 
     $build['board'] = array(
       '#prefix' => '<div class="board"><div class="pane">',
@@ -101,7 +92,6 @@ class TaskManagerController extends ControllerBase {
       $project_tasks = $project->getTasks(TRUE);
 
       foreach ($project_tasks as $task) {
-//kint($task->id());
         $pipeline['tasks'][] = array(
           '#prefix' => '<li class="task draggable" data-task-id="' . $task->id() . '">',
           '#suffix' => '</li>',
@@ -125,11 +115,8 @@ class TaskManagerController extends ControllerBase {
   }
 
   public function sortProjectTasks($project_id, $tasks) {
-kint($project_id, $tasks);
     if ($project_id == 'null') $project_id = null;
-kint($project_id);
     $tasks_array = explode(',', $tasks);
-kint($tasks_array);
     foreach($tasks_array as $weight => $task_id) {
       $task =  Task::load($task_id);
       $task->project_id = $project_id;
@@ -139,6 +126,5 @@ kint($tasks_array);
     }
 
     return new JsonResponse(array('OK'));
-    //return array('#markup' => 'bob');
   }
 }
