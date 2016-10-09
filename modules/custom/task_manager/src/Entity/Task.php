@@ -243,6 +243,11 @@ class Task extends ContentEntityBase implements TaskInterface {
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
+    $fields['weight'] = BaseFieldDefinition::create('integer')
+      ->setLabel(t('Weight'))
+      ->setDescription(t('The Weight of the Task entity.'))
+      ->setReadOnly(TRUE);
+
     $fields['langcode'] = BaseFieldDefinition::create('language')
       ->setLabel(t('Language code'))
       ->setRevisionable(TRUE)

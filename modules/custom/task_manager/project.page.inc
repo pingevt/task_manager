@@ -37,7 +37,7 @@ function template_preprocess_project(array &$variables) {
   }
 
   $variables['content']['task_list'] = $task_list;
-kint($variables);
+//kint($variables);
 }
 
 /**

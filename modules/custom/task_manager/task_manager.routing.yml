@@ -11,3 +11,10 @@ task_manager.change_task_project:
     _controller: '\Drupal\task_manager\Controller\TaskManagerController::changeTaskProject'
   requirements:
     _permission: 'access content'
+task_manager.sort_project_tasks:
+  path: '/api/sort-project-tasks/{project_id}/{tasks}'
+  defaults:
+    _controller: '\Drupal\task_manager\Controller\TaskManagerController::sortProjectTasks'
+  requirements:
+    _permission: 'access content'
+

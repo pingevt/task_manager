@@ -20,8 +20,39 @@
         connectWith: ".pipeline .task-list"
       }).disableSelection()
       .on( "sortupdate", function( event, ui ) {
-console.log(event);
-console.log(ui);
+//console.log(event);
+//console.log(ui);
+
+//console.log($(event.target).parent());
+console.log($(event.target).parent().data('project-id'));
+        projectID = $(event.target).parent().data('project-id');
+
+//console.log(event.target);
+        var tasks = [];
+        $(event.target.children).each(function (i, obj) {
+//console.log(i);
+//console.log(obj);
+//console.log($(obj).data('task-id'));
+          tasks.push($(obj).data('task-id'));
+        });
+
+console.log( tasks );
+console.log( tasks.length );
+
+        if (tasks.length > 0) {
+          url = 'api/sort-project-tasks/' + projectID + '/' + tasks.join();
+console.log( url );
+          var request = $.ajax({
+            url: url,
+            method: "GET",
+            dataType: "json"
+          });
+
+          request.done(function( msg ) {
+console.log( msg );
+          });
+        }
+
       });
     },
     detach: function (context, settings, trigger) {},

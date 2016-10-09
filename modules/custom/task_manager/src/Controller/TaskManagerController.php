@@ -44,6 +44,7 @@ class TaskManagerController extends ControllerBase {
     $ids = $this->taskStorage->getQuery()
       ->condition('status', 1)
       ->condition('project_id', NULL, 'IS NULL')
+      ->sort('weight')
       ->execute();
     $tasks =  Task::loadMultiple($ids);
 //kint($tasks);
@@ -121,5 +122,23 @@ class TaskManagerController extends ControllerBase {
     $task->save();
 
     return new JsonResponse(array('OK'));
+  }
+
+  public function sortProjectTasks($project_id, $tasks) {
+kint($project_id, $tasks);
+    if ($project_id == 'null') $project_id = null;
+kint($project_id);
+    $tasks_array = explode(',', $tasks);
+kint($tasks_array);
+    foreach($tasks_array as $weight => $task_id) {
+      $task =  Task::load($task_id);
+      $task->project_id = $project_id;
+      $task->weight = $weight;
+      $task->setNewRevision(TRUE);
+      $task->save();
+    }
+
+    return new JsonResponse(array('OK'));
+    //return array('#markup' => 'bob');
   }
 }

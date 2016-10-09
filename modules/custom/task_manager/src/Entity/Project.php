@@ -266,6 +266,7 @@ class Project extends ContentEntityBase implements ProjectInterface {
       $ids = $taskStorage->getQuery()
         ->condition('status', 1)
         ->condition('project_id', $this->id())
+        ->sort('weight')
         ->execute();
 
       $tasks =  Task::loadMultiple($ids);
