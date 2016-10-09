@@ -18,8 +18,14 @@
       .board .pane .pipeline h2 {
         margin: 0;
         padding: 0 1em; }
-      .board .pane .pipeline .task {
-        padding: 1em;
-        background: #fff5ee;
-        cursor: pointer;
-        margin-bottom: 2px; }
+      .board .pane .pipeline .task-list {
+        list-style-type: none;
+        background: #111;
+        margin: 0;
+        padding: 0; }
+        .board .pane .pipeline .task-list .task {
+          padding: 0;
+          padding: 1em;
+          background: #fff5ee;
+          cursor: pointer;
+          margin-bottom: 2px; }

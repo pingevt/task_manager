@@ -37,7 +37,7 @@ class TaskManagerController extends ControllerBase {
   public function listByProject() {
     $build = array(
       '#attached' => array(
-        'library' => array('core/jquery.ui.droppable', 'task_manager/pipeline'),
+        'library' => array('core/jquery.ui.droppable', 'core/jquery.ui.sortable', 'task_manager/pipeline'),
       ),
     );
 
@@ -66,18 +66,23 @@ class TaskManagerController extends ControllerBase {
       '#prefix' => '<div class="board"><div class="pane">',
       '#suffix' => '</div></div>',
       'pipelines' => array(
+        '#prefix' => '<div class="task-list">',
+        '#suffix' => '</div>',
         array(
           '#prefix' => '<div class="pipeline droppable" data-project-id="null"><h2>No Project Assigned</h2>',
           '#suffix' => '</div>',
-          'tasks' => array(),
+          'tasks' => array(
+            '#prefix' => '<ul class="task-list">',
+            '#suffix' => '</ul>',
+          ),
         ),
       ),
     );
 
     foreach ($tasks as $task) {
       $build['board']['pipelines'][0]['tasks'][] = array(
-        '#prefix' => '<div class="task draggable" data-task-id="' . $task->id() . '">',
-        '#suffix' => '</div>',
+        '#prefix' => '<li class="task draggable" data-task-id="' . $task->id() . '">',
+        '#suffix' => '</li>',
         '#markup' => $task->getName(),
       );
     }
@@ -86,7 +91,10 @@ class TaskManagerController extends ControllerBase {
       $pipeline = array(
         '#prefix' => '<div class="pipeline droppable" data-project-id="' . $project->id() . '"><h2>' . $project->getName() . '</h2>',
         '#suffix' => '</div>',
-        'tasks' => array(),
+        'tasks' => array(
+          '#prefix' => '<ul class="task-list">',
+          '#suffix' => '</ul>',
+        ),
       );
 
       $project_tasks = $project->getTasks(TRUE);
@@ -94,8 +102,8 @@ class TaskManagerController extends ControllerBase {
       foreach ($project_tasks as $task) {
 //kint($task->id());
         $pipeline['tasks'][] = array(
-          '#prefix' => '<div class="task draggable" data-task-id="' . $task->id() . '">',
-          '#suffix' => '</div>',
+          '#prefix' => '<li class="task draggable" data-task-id="' . $task->id() . '">',
+          '#suffix' => '</li>',
           '#markup' => $task->getName(),
         );
       }

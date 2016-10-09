@@ -2,23 +2,27 @@
 (function ($, Drupal, drupalSettings) {
   Drupal.behaviors.taskManager = {
     attach: function (context, settings) {
-
+/*
       $('.task.draggable', context).draggable({
         containment: ".pane",
         revert: "invalid",
         //helper: "clone",
         cursor: "move"
       });
-
-
-
       $('.pipeline.droppable', context).droppable({
         accept: ".task.draggable",
         drop: function( event, ui ) {
           moveTask( ui.draggable, event.target );
         }
       });
-
+*/
+      $('.pipeline .task-list').sortable({
+        connectWith: ".pipeline .task-list"
+      }).disableSelection()
+      .on( "sortupdate", function( event, ui ) {
+console.log(event);
+console.log(ui);
+      });
     },
     detach: function (context, settings, trigger) {},
   };
