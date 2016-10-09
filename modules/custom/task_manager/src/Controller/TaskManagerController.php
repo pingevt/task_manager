@@ -67,7 +67,7 @@ class TaskManagerController extends ControllerBase {
       '#suffix' => '</div></div>',
       'pipelines' => array(
         array(
-          '#prefix' => '<div class="pipeline droppable"><h2>No Project Assigned</h2>',
+          '#prefix' => '<div class="pipeline droppable" data-project-id="null"><h2>No Project Assigned</h2>',
           '#suffix' => '</div>',
           'tasks' => array(),
         ),
@@ -76,7 +76,7 @@ class TaskManagerController extends ControllerBase {
 
     foreach ($tasks as $task) {
       $build['board']['pipelines'][0]['tasks'][] = array(
-        '#prefix' => '<div class="task draggable">',
+        '#prefix' => '<div class="task draggable" data-task-id="' . $task->id() . '">',
         '#suffix' => '</div>',
         '#markup' => $task->getName(),
       );
@@ -84,7 +84,7 @@ class TaskManagerController extends ControllerBase {
 
     foreach ($projects as $project) {
       $pipeline = array(
-        '#prefix' => '<div class="pipeline droppable"><h2>' . $project->getName() . '</h2>',
+        '#prefix' => '<div class="pipeline droppable" data-project-id="' . $project->id() . '"><h2>' . $project->getName() . '</h2>',
         '#suffix' => '</div>',
         'tasks' => array(),
       );
@@ -92,8 +92,9 @@ class TaskManagerController extends ControllerBase {
       $project_tasks = $project->getTasks(TRUE);
 
       foreach ($project_tasks as $task) {
+//kint($task->id());
         $pipeline['tasks'][] = array(
-          '#prefix' => '<div class="task draggable">',
+          '#prefix' => '<div class="task draggable" data-task-id="' . $task->id() . '">',
           '#suffix' => '</div>',
           '#markup' => $task->getName(),
         );
@@ -102,20 +103,15 @@ class TaskManagerController extends ControllerBase {
       $build['board']['pipelines'][] = $pipeline;
     }
 
-
-
-
     return $build;
   }
 
   public function changeTaskProject($task_id, $project_id) {
     $task =  Task::load($task_id);
 
-    $task->project_id = ($project_id != 0)? : null;
+    $task->project_id = ($project_id != 0)? $project_id : null;
     $task->save();
 
-    //return array('#markup' => 'Hello');
-
-    return new JsonResponse(array('success'));
+    return new JsonResponse(array('OK'));
   }
 }

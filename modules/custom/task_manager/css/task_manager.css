@@ -4,7 +4,7 @@
   background: #ccc;
   overflow-x: scroll; }
   .board .pane {
-    width: 200%;
+    width: auto;
     height: 100%;
     overflow: hidden; }
     .board .pane .pipeline {
