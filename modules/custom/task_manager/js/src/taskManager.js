@@ -2,7 +2,15 @@
 (function ($, Drupal, drupalSettings) {
   Drupal.behaviors.taskManager = {
     attach: function (context, settings) {
+      // Set board size
+      numOfBoards = $('.board .pane .pipeline', context).length;
+console.log(numOfBoards);
+      size = (numOfBoards * 300) + 50;
+console.log(size);
 
+      $('.board .pane').css('width', size+'px');
+
+      // Setup sortable
       $('.pipeline .task-list').sortable({
         connectWith: ".pipeline .task-list"
       }).disableSelection()

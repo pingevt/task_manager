@@ -22,7 +22,8 @@
         list-style-type: none;
         background: #111;
         margin: 0;
-        padding: 10px 0; }
+        padding: 10px 0;
+        height: 100%; }
         .board .pane .pipeline .task-list .task {
           padding: 0;
           padding: 1em;

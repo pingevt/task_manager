@@ -58,8 +58,8 @@ class TaskManagerController extends ControllerBase {
       '#prefix' => '<div class="board"><div class="pane">',
       '#suffix' => '</div></div>',
       'pipelines' => array(
-        '#prefix' => '<div class="task-list">',
-        '#suffix' => '</div>',
+        //'#prefix' => '<div class="task-list">',
+        //'#suffix' => '</div>',
         array(
           '#prefix' => '<div class="pipeline droppable" data-project-id="null"><h2>No Project Assigned</h2>',
           '#suffix' => '</div>',
