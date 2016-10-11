@@ -1,0 +1,21 @@
+uuid: 53d2b602-38f0-4a94-b43b-ddae760f035a
+langcode: en
+status: true
+dependencies:
+  module:
+    - task_manager
+    - text
+_core:
+  default_config_hash: XIkMpQdwcQ9L3GebczKHpQn1Tp8NcI-X9IgitHGr3Jo
+id: task.field_description
+field_name: field_description
+entity_type: task
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,20 @@
+uuid: 09b7bffb-abc6-4400-b8b6-ce5ab50e9d0a
+langcode: en
+status: true
+dependencies:
+  module:
+    - task_manager
+_core:
+  default_config_hash: jcmkM-YwNFNB9sjl62h_Tdwj_SBB5c9czPrWdVkFGDs
+id: task.field_estimate
+field_name: field_estimate
+entity_type: task
+type: float
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

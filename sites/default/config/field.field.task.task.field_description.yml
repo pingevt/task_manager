@@ -1,0 +1,23 @@
+uuid: efea2530-d13c-4bce-b06a-6f524fd04b5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.task.field_description
+    - task_manager.task_type.task
+  module:
+    - text
+_core:
+  default_config_hash: qx924ekXYOfwjyuJ28sPfI4jwFjGoq88yvIGrOpE17Q
+id: task.task.field_description
+field_name: field_description
+entity_type: task
+bundle: task
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

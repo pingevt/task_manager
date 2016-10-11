@@ -1,0 +1,12 @@
+uuid: 79bd279e-d8ff-4412-86f2-975b17e42397
+langcode: en
+status: true
+dependencies:
+  module:
+    - task_manager
+_core:
+  default_config_hash: WGcKndZNOUMi7Zv6V6T4eECicGtaMRuJLoeBKF7EtYc
+id: task.list
+label: List
+targetEntityType: task
+cache: true

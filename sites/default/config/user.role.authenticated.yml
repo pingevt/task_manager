@@ -1,0 +1,25 @@
+uuid: f1b82006-ce6a-49a3-be29-5aff6843a1f5
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'administer project entities'
+  - 'administer task entities'
+  - 'add project entities'
+  - 'add task entities'
+  - 'delete project entities'
+  - 'delete task entities'
+  - 'edit project entities'
+  - 'edit task entities'
+  - 'view published project entities'
+  - 'view published task entities'
+  - 'view unpublished project entities'
+  - 'view unpublished task entities'
+  - 'access toolbar'

@@ -1,0 +1,12 @@
+uuid: 8766e2bc-ef0b-47e7-bae0-323c4ec0fe30
+langcode: en
+status: true
+dependencies:
+  module:
+    - task_manager
+_core:
+  default_config_hash: QKblIsbTYjyu3NvpbFmRJBi-Ucp9-b9YjlElHwZUfoA
+id: project.droppable_list
+label: 'Droppable list'
+targetEntityType: project
+cache: true
