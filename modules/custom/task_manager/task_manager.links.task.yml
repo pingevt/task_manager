@@ -16,10 +16,6 @@ entity.project.delete_form:
   weight: 10
 
 # Task routing definition
-task.settings_tab:
-  route_name: task.settings
-  title: 'Settings'
-  base_route: task.settings
 entity.task.canonical:
   route_name: entity.task.canonical
   base_route: entity.task.canonical

@@ -15,11 +15,6 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\task_manager\ProjectInterface;
 use Drupal\user\UserInterface;
 
-/*
- *     "view_builder" = "Drupal\task_manager\ProjectViewBuilder",
- *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
-*/
-
 /**
  * Defines the Project entity.
  *

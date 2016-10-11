@@ -22,8 +22,10 @@ entity.task.collection:
   parent: system.admin_structure
   weight: 100
 
-task.admin.structure.settings:
-  title: Task settings
-  description: 'Configure Task entities'
-  route_name: task.settings
+# Project type menu items definition
+entity.task_type.collection:
+  title: 'Task type'
+  route_name: entity.task_type.collection
+  description: 'List Task type (bundles)'
   parent: system.admin_structure
+  weight: 99

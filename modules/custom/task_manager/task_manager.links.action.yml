@@ -10,7 +10,12 @@ entity.project_type.add_form:
     - entity.project_type.collection
 
 entity.task.add_form:
-  route_name: entity.task.add_form
+  route_name: 'task.add_page'
   title: 'Add Task'
   appears_on:
     - entity.task.collection
+entity.task_type.add_form:
+  route_name: 'entity.task_type.add_form'
+  title: 'Add Task type'
+  appears_on:
+    - entity.task_type.collection

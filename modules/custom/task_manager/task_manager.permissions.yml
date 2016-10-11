@@ -17,6 +17,7 @@ view published project entities:
 
 view unpublished project entities:
   title: 'View unpublished Project entities'
+
 add task entities:
   title: 'Create new Task entities'
 

@@ -28,3 +28,34 @@ function template_preprocess_task(array &$variables) {
     $variables['content'][$key] = $variables['elements'][$key];
   }
 }
+
+/**
+* Prepares variables for a custom entity type creation list templates.
+*
+* Default template: task-content-add-list.html.twig.
+*
+* @param array $variables
+*   An associative array containing:
+*   - content: An array of task-types.
+*
+* @see block_content_add_page()
+*/
+function template_preprocess_task_content_add_list(&$variables) {
+  $variables['types'] = array();
+  $query = \Drupal::request()->query->all();
+  foreach ($variables['content'] as $type) {
+    $variables['types'][$type->id()] = array(
+      'link' => Link::fromTextAndUrl($type->label(), new Url('entity.task.add_form', array(
+        'task_type' => $type->id()
+      ), array('query' => $query))),
+      'description' => array(
+      '#markup' => $type->label(),
+      ),
+      'title' => $type->label(),
+      'localized_options' => array(
+      'query' => $query,
+      ),
+    );
+  }
+}
+

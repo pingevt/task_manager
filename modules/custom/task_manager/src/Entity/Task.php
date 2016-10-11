@@ -23,6 +23,7 @@ use Drupal\user\UserInterface;
  * @ContentEntityType(
  *   id = "task",
  *   label = @Translation("Task"),
+ *   bundle_label = @Translation("Task type"),
  *   handlers = {
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *     "list_builder" = "Drupal\task_manager\TaskListBuilder",
@@ -45,6 +46,7 @@ use Drupal\user\UserInterface;
  *   entity_keys = {
  *     "id" = "id",
  *     "revision" = "vid",
+ *     "bundle" = "type",
  *     "label" = "name",
  *     "uuid" = "uuid",
  *     "uid" = "user_id",
@@ -53,12 +55,13 @@ use Drupal\user\UserInterface;
  *   },
  *   links = {
  *     "canonical" = "/admin/structure/task/{task}",
- *     "add-form" = "/admin/structure/task/add",
+ *     "add-form" = "/admin/structure/task/add/{task_type}",
  *     "edit-form" = "/admin/structure/task/{task}/edit",
  *     "delete-form" = "/admin/structure/task/{task}/delete",
  *     "collection" = "/admin/structure/task",
  *   },
- *   field_ui_base_route = "task.settings"
+ *   bundle_entity_type = "task_type",
+ *   field_ui_base_route = "entity.task_type.edit_form"
  * )
  */
 class Task extends ContentEntityBase implements TaskInterface {
@@ -71,6 +74,13 @@ class Task extends ContentEntityBase implements TaskInterface {
     $values += array(
       'user_id' => \Drupal::currentUser()->id(),
     );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getType() {
+    return $this->bundle();
   }
 
   /**
@@ -160,6 +170,11 @@ class Task extends ContentEntityBase implements TaskInterface {
       ->setLabel(t('VID'))
       ->setDescription(t('The VID of the Task entity.'))
       ->setReadOnly(TRUE);
+    $fields['type'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Type'))
+      ->setDescription(t('The Task type/bundle.'))
+      ->setSetting('target_type', 'task_type')
+      ->setRequired(TRUE);
     $fields['uuid'] = BaseFieldDefinition::create('uuid')
       ->setLabel(t('UUID'))
       ->setDescription(t('The UUID of the Task entity.'))
