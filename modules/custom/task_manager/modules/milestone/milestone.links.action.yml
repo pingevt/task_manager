@@ -1,0 +1,11 @@
+entity.milestone.add_form:
+  route_name: 'milestone.add_page'
+  title: 'Add Milestone'
+  appears_on:
+    - entity.milestone.collection
+entity.milestone_type.add_form:
+  route_name: 'entity.milestone_type.add_form'
+  title: 'Add Milestone type'
+  appears_on:
+    - entity.milestone_type.collection
+

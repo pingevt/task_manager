@@ -1,0 +1,5 @@
+name: Milestone
+type: module
+description: Milestones for projects.
+core: 8.x
+package: Custom

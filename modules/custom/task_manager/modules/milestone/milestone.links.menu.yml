@@ -1,0 +1,16 @@
+# Milestone menu items definition
+entity.milestone.collection:
+  title: 'Milestone list'
+  route_name: entity.milestone.collection
+  description: 'List Milestone entities'
+  parent: system.admin_structure
+  weight: 100
+
+# Milestone type menu items definition
+entity.milestone_type.collection:
+  title: 'Milestone type'
+  route_name: entity.milestone_type.collection
+  description: 'List Milestone type (bundles)'
+  parent: system.admin_structure
+  weight: 99
+

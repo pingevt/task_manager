@@ -1,0 +1,19 @@
+add milestone entities:
+  title: 'Create new Milestone entities'
+
+administer milestone entities:
+  title: 'Administer Milestone entities'
+  description: 'Allow to access the administration form to configure Milestone entities.'
+  restrict access: true
+
+delete milestone entities:
+  title: 'Delete Milestone entities'
+
+edit milestone entities:
+  title: 'Edit Milestone entities'
+
+view published milestone entities:
+  title: 'View published Milestone entities'
+
+view unpublished milestone entities:
+  title: 'View unpublished Milestone entities'

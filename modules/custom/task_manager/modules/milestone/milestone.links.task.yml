@@ -1,0 +1,17 @@
+# Milestone routing definition
+entity.milestone.canonical:
+  route_name: entity.milestone.canonical
+  base_route: entity.milestone.canonical
+  title: 'View'
+
+entity.milestone.edit_form:
+  route_name: entity.milestone.edit_form
+  base_route: entity.milestone.canonical
+  title: Edit
+
+entity.milestone.delete_form:
+  route_name:  entity.milestone.delete_form
+  base_route:  entity.milestone.canonical
+  title: Delete
+  weight: 10
+
