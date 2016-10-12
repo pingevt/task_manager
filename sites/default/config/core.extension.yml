@@ -33,7 +33,6 @@ module:
   user: 0
   views: 0
   views_ui: 0
-  minimal: 1000
 theme:
   stable: 0
   classy: 0
