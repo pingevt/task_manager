@@ -18,7 +18,7 @@ use Drupal\user\UserInterface;
 /**
  * Defines the Project entity.
  *
- * @ingroup task_manager
+ * @ingroup project
  *
  * @ContentEntityType(
  *   id = "project",
@@ -26,18 +26,18 @@ use Drupal\user\UserInterface;
  *   bundle_label = @Translation("Project type"),
  *   handlers = {
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
- *     "list_builder" = "Drupal\task_manager\ProjectListBuilder",
- *     "views_data" = "Drupal\task_manager\Entity\ProjectViewsData",
+ *     "list_builder" = "Drupal\project\ProjectListBuilder",
+ *     "views_data" = "Drupal\project\Entity\ProjectViewsData",
  *
  *     "form" = {
- *       "default" = "Drupal\task_manager\Form\ProjectForm",
- *       "add" = "Drupal\task_manager\Form\ProjectForm",
- *       "edit" = "Drupal\task_manager\Form\ProjectForm",
- *       "delete" = "Drupal\task_manager\Form\ProjectDeleteForm",
+ *       "default" = "Drupal\project\Form\ProjectForm",
+ *       "add" = "Drupal\project\Form\ProjectForm",
+ *       "edit" = "Drupal\project\Form\ProjectForm",
+ *       "delete" = "Drupal\project\Form\ProjectDeleteForm",
  *     },
- *     "access" = "Drupal\task_manager\ProjectAccessControlHandler",
+ *     "access" = "Drupal\project\ProjectAccessControlHandler",
  *     "route_provider" = {
- *       "html" = "Drupal\task_manager\ProjectHtmlRouteProvider",
+ *       "html" = "Drupal\project\ProjectHtmlRouteProvider",
  *     },
  *   },
  *   base_table = "project",

@@ -200,6 +200,30 @@ class MilestoneEntity extends ContentEntityBase implements MilestoneEntityInterf
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
+    $fields['project'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Project'))
+      ->setDescription(t('The Project ID of the Milestone entity.'))
+      ->setRevisionable(TRUE)
+      ->setSetting('target_type', 'project')
+      ->setSetting('handler', 'default')
+      ->setDisplayOptions('view', array(
+        'label' => 'hidden',
+        //'type' => 'author',
+        //'weight' => 0,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'entity_reference_autocomplete',
+        'weight' => 5,
+        'settings' => array(
+          'match_operator' => 'CONTAINS',
+          'size' => '60',
+          'autocomplete_type' => 'tags',
+          'placeholder' => '',
+        ),
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
       ->setDescription(t('The name of the Milestone entity.'))

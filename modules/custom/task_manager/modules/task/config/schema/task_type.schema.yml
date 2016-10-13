@@ -1,4 +1,4 @@
-task.project_type.*:
+task.task_type.*:
   type: config_entity
   label: 'Project type config'
   mapping:

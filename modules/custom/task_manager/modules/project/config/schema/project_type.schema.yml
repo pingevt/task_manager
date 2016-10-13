@@ -1,6 +1,6 @@
-project.task_type.*:
+project.project_type.*:
   type: config_entity
-  label: 'Task type config'
+  label: 'Project type config'
   mapping:
     id:
       type: string
