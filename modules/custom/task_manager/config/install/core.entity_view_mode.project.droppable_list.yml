@@ -1,8 +1,0 @@
-id: project.droppable_list
-label: Droppable list
-status: true
-cache: true
-targetEntityType: project
-dependencies:
-  module:
-    - task_manager

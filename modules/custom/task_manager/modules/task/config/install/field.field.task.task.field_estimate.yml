@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.task.field_estimate
+    - task.task_type.task
+id: task.task.field_estimate
+field_name: field_estimate
+entity_type: task
+bundle: task
+label: Estimate
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

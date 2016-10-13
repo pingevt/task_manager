@@ -1,8 +1,0 @@
-id: task.list
-label: List
-status: true
-cache: true
-targetEntityType: task
-dependencies:
-  module:
-    - task_manager

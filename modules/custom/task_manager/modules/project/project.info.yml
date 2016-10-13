@@ -1,0 +1,5 @@
+name: Project
+type: module
+description: Project for Task Manager.
+core: 8.x
+package: Task Manager

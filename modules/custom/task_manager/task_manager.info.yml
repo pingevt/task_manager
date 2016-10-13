@@ -1,5 +1,10 @@
 name: Task Manager
 type: module
-description: Manage Tasks
+description: Manage Projects and Tasks
 core: 8.x
-package: Tasks
+package: Task Manager
+dependencies:
+  - project
+  - milestone
+  - task
+

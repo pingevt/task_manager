@@ -1,5 +1,5 @@
 name: Milestone
 type: module
-description: Milestones for projects.
+description: Milestones for Task Manager.
 core: 8.x
-package: Custom
+package: Task Manager

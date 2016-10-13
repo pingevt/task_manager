@@ -1,0 +1,8 @@
+id: milestone.milestone
+label: Milestone
+status: true
+cache: true
+targetEntityType: milestone
+dependencies:
+  module:
+    - milestone

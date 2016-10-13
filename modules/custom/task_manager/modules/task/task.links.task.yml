@@ -1,0 +1,17 @@
+# Task routing definition
+entity.task.canonical:
+  route_name: entity.task.canonical
+  base_route: entity.task.canonical
+  title: 'View'
+
+entity.task.edit_form:
+  route_name: entity.task.edit_form
+  base_route: entity.task.canonical
+  title: Edit
+
+entity.task.delete_form:
+  route_name:  entity.task.delete_form
+  base_route:  entity.task.canonical
+  title: Delete
+  weight: 10
+

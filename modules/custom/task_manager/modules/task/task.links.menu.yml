@@ -1,0 +1,13 @@
+# Task menu items definition
+entity.task.collection:
+  title: 'Task list'
+  route_name: entity.task.collection
+  description: 'List Task entities'
+  parent: system.admin_structure
+
+# Project type menu items definition
+entity.task_type.collection:
+  title: 'Task type'
+  route_name: entity.task_type.collection
+  description: 'List Task type (bundles)'
+  parent: system.admin_structure

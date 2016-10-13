@@ -1,0 +1,5 @@
+name: Task
+type: module
+description: Task for Task Manager.
+core: 8.x
+package: Task Manager
