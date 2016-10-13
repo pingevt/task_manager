@@ -1,0 +1,12 @@
+uuid: 3078bcef-b377-4600-a354-7c5646681b92
+langcode: en
+status: true
+dependencies:
+  module:
+    - milestone
+_core:
+  default_config_hash: Ah7ywNVGUOVt7_E_EPlErIipOYCZPa4CbpRju7fCK4U
+id: milestone.milestone
+label: Milestone
+targetEntityType: milestone
+cache: true

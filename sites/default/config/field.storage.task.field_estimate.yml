@@ -1,11 +1,11 @@
-uuid: 09b7bffb-abc6-4400-b8b6-ce5ab50e9d0a
+uuid: 21796c73-d805-4027-8964-3d50495d383f
 langcode: en
 status: true
 dependencies:
   module:
-    - task_manager
+    - task
 _core:
-  default_config_hash: jcmkM-YwNFNB9sjl62h_Tdwj_SBB5c9czPrWdVkFGDs
+  default_config_hash: S_4ynOrQP3ofrJHshTYpbIeJyNW2zr1LAoCtD1q1hfI
 id: task.field_estimate
 field_name: field_estimate
 entity_type: task

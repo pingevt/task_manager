@@ -1,0 +1,40 @@
+uuid: c6198f75-d6bf-4c80-a724-bf77e5c5b730
+langcode: en
+status: true
+dependencies:
+  config:
+    - milestone.milestone_type.basic
+id: milestone.basic.default
+targetEntityType: milestone
+bundle: basic
+mode: default
+content:
+  langcode:
+    type: language_select
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  project:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

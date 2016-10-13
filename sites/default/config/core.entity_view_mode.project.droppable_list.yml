@@ -1,11 +1,11 @@
-uuid: 8766e2bc-ef0b-47e7-bae0-323c4ec0fe30
+uuid: 506292ea-e234-4fdc-b700-9d1cbfd5481a
 langcode: en
 status: true
 dependencies:
   module:
-    - task_manager
+    - project
 _core:
-  default_config_hash: QKblIsbTYjyu3NvpbFmRJBi-Ucp9-b9YjlElHwZUfoA
+  default_config_hash: lteLJ5sFBEj9v1K8SSuMMEaUR86wdvrjfkiIAnnwVks
 id: project.droppable_list
 label: 'Droppable list'
 targetEntityType: project

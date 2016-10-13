@@ -1,0 +1,33 @@
+uuid: 37bcaa98-24f3-499b-b5fb-8fc8680f1fe8
+langcode: en
+status: true
+dependencies:
+  config:
+    - milestone.milestone_type.basic
+  module:
+    - user
+id: milestone.basic.default
+targetEntityType: milestone
+bundle: basic
+mode: default
+content:
+  name:
+    label: above
+    type: string
+    weight: -4
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  project:
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

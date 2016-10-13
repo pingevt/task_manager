@@ -1,11 +1,11 @@
-uuid: 79bd279e-d8ff-4412-86f2-975b17e42397
+uuid: 473bebc7-da6a-4382-87cc-55646ecd352f
 langcode: en
 status: true
 dependencies:
   module:
-    - task_manager
+    - task
 _core:
-  default_config_hash: WGcKndZNOUMi7Zv6V6T4eECicGtaMRuJLoeBKF7EtYc
+  default_config_hash: ju5kQL91c7DBWPrjNR4Co0DHbn8PI7IZQQgAIBKq7Uc
 id: task.list
 label: List
 targetEntityType: task

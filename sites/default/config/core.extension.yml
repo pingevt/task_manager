@@ -21,12 +21,15 @@ module:
   link: 0
   menu_link_content: 0
   menu_ui: 0
+  milestone: 0
   node: 0
   options: 0
   page_cache: 0
   path: 0
+  project: 0
   responsive_image: 0
   system: 0
+  task: 0
   task_manager: 0
   text: 0
   toolbar: 0

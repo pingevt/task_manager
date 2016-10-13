@@ -1,12 +1,12 @@
-uuid: 857bf79f-2603-4283-9bfe-bc8157270435
+uuid: 8762a158-136a-43b5-baeb-28be53f0fc22
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.task.field_estimate
-    - task_manager.task_type.task
+    - task.task_type.task
 _core:
-  default_config_hash: Q6tN2pjFKclIDfnhHmv8TnG_mPQitq5Z7Fqvrhb_LeU
+  default_config_hash: uyS_EzhiD07sc2zE5D2ZvFMHpgFrJ4pei3aE2SQdCp4
 id: task.task.field_estimate
 field_name: field_estimate
 entity_type: task

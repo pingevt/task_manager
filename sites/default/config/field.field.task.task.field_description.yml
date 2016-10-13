@@ -1,14 +1,14 @@
-uuid: efea2530-d13c-4bce-b06a-6f524fd04b5e
+uuid: 028a5dcc-e6fe-438a-bb33-d6fe0e2cba29
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.task.field_description
-    - task_manager.task_type.task
+    - task.task_type.task
   module:
     - text
 _core:
-  default_config_hash: qx924ekXYOfwjyuJ28sPfI4jwFjGoq88yvIGrOpE17Q
+  default_config_hash: sB5z7NA5bOkALmu_ELPIGxdyJ5W1vFhp4bbMcLKUx2Q
 id: task.task.field_description
 field_name: field_description
 entity_type: task
