@@ -14,6 +14,7 @@ use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\project\ProjectInterface;
 use Drupal\user\UserInterface;
+use Drupal\task\Entity\Task;
 
 /**
  * Defines the Project entity.
@@ -212,6 +213,46 @@ class Project extends ContentEntityBase implements ProjectInterface {
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
       ->setDescription(t('The name of the Project entity.'))
+      ->setSettings(array(
+        'max_length' => 50,
+        'text_processing' => 0,
+      ))
+      ->setDefaultValue('')
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => -4,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'weight' => -4,
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+    $fields['github_project_id'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('GitHub Project Id'))
+      ->setDescription(t('The id of the Github Project.'))
+      ->setSettings(array(
+        'max_length' => 50,
+        'text_processing' => 0,
+      ))
+      ->setDefaultValue('')
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => -4,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'weight' => -4,
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+    $fields['github_owner'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('GitHub Owner'))
+      ->setDescription(t('The Owner of the Github Project.'))
       ->setSettings(array(
         'max_length' => 50,
         'text_processing' => 0,

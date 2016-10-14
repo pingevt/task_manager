@@ -1,0 +1,17 @@
+# Pipeline routing definition
+entity.pipeline.canonical:
+  route_name: entity.pipeline.canonical
+  base_route: entity.pipeline.canonical
+  title: 'View'
+
+entity.pipeline.edit_form:
+  route_name: entity.pipeline.edit_form
+  base_route: entity.pipeline.canonical
+  title: Edit
+
+entity.pipeline.delete_form:
+  route_name:  entity.pipeline.delete_form
+  base_route:  entity.pipeline.canonical
+  title: Delete
+  weight: 10
+

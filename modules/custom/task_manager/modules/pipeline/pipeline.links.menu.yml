@@ -1,0 +1,14 @@
+# Pipeline menu items definition
+entity.pipeline.collection:
+  title: 'Pipeline list'
+  route_name: entity.pipeline.collection
+  description: 'List Pipeline entities'
+  parent: system.admin_structure
+
+# Pipeline type menu items definition
+entity.pipeline_type.collection:
+  title: 'Pipeline type'
+  route_name: entity.pipeline_type.collection
+  description: 'List Pipeline type (bundles)'
+  parent: system.admin_structure
+

@@ -1,0 +1,19 @@
+add pipeline entities:
+  title: 'Create new Pipeline entities'
+
+administer pipeline entities:
+  title: 'Administer Pipeline entities'
+  description: 'Allow to access the administration form to configure Pipeline entities.'
+  restrict access: true
+
+delete pipeline entities:
+  title: 'Delete Pipeline entities'
+
+edit pipeline entities:
+  title: 'Edit Pipeline entities'
+
+view published pipeline entities:
+  title: 'View published Pipeline entities'
+
+view unpublished pipeline entities:
+  title: 'View unpublished Pipeline entities'

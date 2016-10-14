@@ -1,0 +1,11 @@
+entity.pipeline.add_form:
+  route_name: 'pipeline.add_page'
+  title: 'Add Pipeline'
+  appears_on:
+    - entity.pipeline.collection
+entity.pipeline_type.add_form:
+  route_name: 'entity.pipeline_type.add_form'
+  title: 'Add Pipeline type'
+  appears_on:
+    - entity.pipeline_type.collection
+

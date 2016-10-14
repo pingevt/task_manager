@@ -1,0 +1,8 @@
+# User connection menu items definition
+entity.user_connection.collection:
+  title: 'User connection'
+  route_name: entity.user_connection.collection
+  description: 'List User connection (bundles)'
+  parent: system.admin_structure
+  weight: 99
+

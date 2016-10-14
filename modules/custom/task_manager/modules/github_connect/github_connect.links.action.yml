@@ -1,0 +1,6 @@
+entity.user_connection.add_form:
+  route_name: 'entity.user_connection.add_form'
+  title: 'Add User connection'
+  appears_on:
+    - entity.user_connection.collection
+

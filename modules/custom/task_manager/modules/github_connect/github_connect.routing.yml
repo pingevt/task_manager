@@ -1,0 +1,9 @@
+github_connect.test_page:
+  path: '/github-test'
+  defaults:
+    _controller: '\Drupal\github_connect\Controller\GitHubPages::testPage'
+    _title: Test Github Page
+  requirements:
+    _permission: 'access content'
+  options:
+    _admin_route: TRUE

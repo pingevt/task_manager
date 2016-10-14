@@ -67,3 +67,9 @@ Thumbs.db
 ######################
 themes/*/node_modules
 node_modules
+
+
+
+
+
+sites/default/config/github_connect.user_connection.inge.yml

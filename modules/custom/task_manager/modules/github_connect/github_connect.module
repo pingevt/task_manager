@@ -1,0 +1,17 @@
+<?php
+
+use Drupal\github_connect\GitHubConnect;
+
+function github_connect_preprocess_project($vars) {
+kint($vars);
+	$project = $vars['elements']['#project'];
+kint($project->github_project_id->value);
+kint($project->github_owner->value);
+
+	$project_id = $project->github_project_id->value;
+	$owner = $project->github_owner->value;
+
+	$conn = new GitHubConnect();
+
+	kint($conn->getProject($owner, $project_id));
+}

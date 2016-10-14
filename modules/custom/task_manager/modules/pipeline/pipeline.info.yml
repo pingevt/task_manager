@@ -1,0 +1,7 @@
+name: Pipeline
+type: module
+description: Pipeline for Task Manager.
+core: 8.x
+package: Task Manager
+dependencies:
+  - task_manager

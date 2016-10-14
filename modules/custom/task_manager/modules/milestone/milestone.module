@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
 
 /**
  * Implements hook_help().
@@ -55,4 +56,38 @@ function milestone_theme_suggestions_milestone(array $variables) {
   $suggestions[] = 'milestone__' . $entity->id();
   $suggestions[] = 'milestone__' . $entity->id() . '__' . $sanitized_view_mode;
   return $suggestions;
+}
+
+
+function milestone_entity_base_field_info_alter(&$fields, \Drupal\Core\Entity\EntityTypeInterface $entity_type) {
+  /*
+  if ($entity_type->id() == 'task') {
+    $fields['milestone_id'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Milestone'))
+      ->setName(t('Milestone'))
+      ->setDescription(t('The Milestone ID the Task entity belongs to.'))
+      ->setRevisionable(TRUE)
+      ->setSetting('target_type', 'milestone')
+      ->setSetting('handler', 'default')
+      ->setTranslatable(TRUE)
+      ->setDisplayOptions('view', array(
+        'label' => 'hidden',
+        'type' => 'milestone',
+        'weight' => 0,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'entity_reference_autocomplete',
+        'weight' => 5,
+        'settings' => array(
+          'match_operator' => 'CONTAINS',
+          'size' => '60',
+          'autocomplete_type' => 'tags',
+          'placeholder' => '',
+        ),
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+  }
+  */
 }

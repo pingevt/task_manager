@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @file
+ * Contains pipeline.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function pipeline_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the pipeline module.
+    case 'help.page.pipeline':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function pipeline_theme() {
+  $theme = [];
+  $theme['pipeline'] = [
+    'render element' => 'elements',
+    'file' => 'pipeline.page.inc',
+    'template' => 'pipeline',
+  ];
+  $theme['pipeline_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'pipeline.page.inc',
+  ];
+  return $theme;
+}
+
+/**
+* Implements hook_theme_suggestions_HOOK().
+*/
+function pipeline_theme_suggestions_pipeline(array $variables) {
+  $suggestions = array();
+  $entity = $variables['elements']['#pipeline'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'pipeline__' . $sanitized_view_mode;
+  $suggestions[] = 'pipeline__' . $entity->bundle();
+  $suggestions[] = 'pipeline__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'pipeline__' . $entity->id();
+  $suggestions[] = 'pipeline__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
+}
+
+function pipeline_entity_base_field_info_alter(&$fields, \Drupal\Core\Entity\EntityTypeInterface $entity_type) {
+
+}

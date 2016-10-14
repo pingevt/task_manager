@@ -1,0 +1,24 @@
+github_connect.user_connection.*:
+  type: config_entity
+  label: 'User connection config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
+    uid:
+      type: string
+      label: 'User ID'
+    accessToken:
+      type: string
+      label: 'Access Token'
+    username:
+      type: string
+      label: 'Username'
+    password:
+      type: string
+      label: 'Password'
